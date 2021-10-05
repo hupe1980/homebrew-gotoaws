@@ -5,33 +5,33 @@
 class Gotoaws < Formula
   desc "gotoaws is an interactive CLI tool that you can use to connect to your AWS resources (EC2, ECS container) using the AWS Systems Manager Session Manager"
   homepage "https://github.com/hupe1980/gotoaws"
-  version "0.8.0"
+  version "0.8.1"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.0/gotoaws_Darwin_x86_64.tar.gz"
-      sha256 "6fea58a36206fe14c486c072a0414be18d58724b3010b6bc78987ee860456eb9"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Darwin_x86_64.tar.gz"
+      sha256 "89fbd128fdc08eae52fcd89cff5b8443bdbe7c4f8e15dbffe399d8acc7e8afe7"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.0/gotoaws_Darwin_arm64.tar.gz"
-      sha256 "367110c83f6cb41d5fabb0130df8507c11c7e6f2f93d54316840129e28dfaa11"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Darwin_arm64.tar.gz"
+      sha256 "ef800557b86f9b38ea80402aa6808759b8ba16f1243dfcc9bb458e0e37f374fc"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.0/gotoaws_Linux_x86_64.tar.gz"
-      sha256 "b4560b379a6d663e1f1898f6604864213241930f7e6b5991e503af7aa09f97af"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Linux_x86_64.tar.gz"
+      sha256 "89fe62db1135cc1881e3030755da707ecdbb9fc0a202a9a3af0c894a2e2a667b"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.0/gotoaws_Linux_armv6.tar.gz"
-      sha256 "e27665b1b91a85ebf3095d7f5d5a666a1f3d510d7014a47130a45e821fb420ee"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Linux_armv6.tar.gz"
+      sha256 "9d88e0232befeb5024afd4827e065131e43377154fa936a184335b4a87690c0e"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.0/gotoaws_Linux_arm64.tar.gz"
-      sha256 "f2c1f6ab9f15cbc5005d92fe32a6f770346823e728aa8ed54405a90639d00433"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Linux_arm64.tar.gz"
+      sha256 "030fc5c61310d7ccc9f0891cab2338b59c8e3b491c87a013fe855f9a8bfc1d3a"
     end
   end
 
