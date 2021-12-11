@@ -5,41 +5,68 @@
 class Gotoaws < Formula
   desc "gotoaws is an interactive CLI tool that you can use to connect to your AWS resources (EC2, ECS container) using the AWS Systems Manager Session Manager"
   homepage "https://github.com/hupe1980/gotoaws"
-  version "0.8.1"
+  version "0.0.9"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Darwin_x86_64.tar.gz"
-      sha256 "89fbd128fdc08eae52fcd89cff5b8443bdbe7c4f8e15dbffe399d8acc7e8afe7"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.0.9/gotoaws_Darwin_x86_64.tar.gz"
+      sha256 "cdd202500306f5039b1f4211f72c9879822b6772a81cd8664d4cde73416cf9e7"
+
+      def install
+        bin.install "gotoaws"
+        bash_completion.install "completions/gotoaws.bash" => "gotoaws"
+        zsh_completion.install "completions/gotoaws.zsh" => "_gotoaws"
+        fish_completion.install "completions/gotoaws.fish"
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Darwin_arm64.tar.gz"
-      sha256 "ef800557b86f9b38ea80402aa6808759b8ba16f1243dfcc9bb458e0e37f374fc"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.0.9/gotoaws_Darwin_arm64.tar.gz"
+      sha256 "c19f0fa5dc0d5de6293bfea32381e83fb829202120b425d34d18dbc56fbee105"
+
+      def install
+        bin.install "gotoaws"
+        bash_completion.install "completions/gotoaws.bash" => "gotoaws"
+        zsh_completion.install "completions/gotoaws.zsh" => "_gotoaws"
+        fish_completion.install "completions/gotoaws.fish"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Linux_x86_64.tar.gz"
-      sha256 "89fe62db1135cc1881e3030755da707ecdbb9fc0a202a9a3af0c894a2e2a667b"
-    end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Linux_armv6.tar.gz"
-      sha256 "9d88e0232befeb5024afd4827e065131e43377154fa936a184335b4a87690c0e"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.0.9/gotoaws_Linux_x86_64.tar.gz"
+      sha256 "1ae958dc5148c8661e88ced71ffedb84c38749db7039a82ec87f5b99f1c019d7"
+
+      def install
+        bin.install "gotoaws"
+        bash_completion.install "completions/gotoaws.bash" => "gotoaws"
+        zsh_completion.install "completions/gotoaws.zsh" => "_gotoaws"
+        fish_completion.install "completions/gotoaws.fish"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.8.1/gotoaws_Linux_arm64.tar.gz"
-      sha256 "030fc5c61310d7ccc9f0891cab2338b59c8e3b491c87a013fe855f9a8bfc1d3a"
-    end
-  end
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.0.9/gotoaws_Linux_arm64.tar.gz"
+      sha256 "658eb924cb0beeafa43052ab21fc9150e44f27164b43fed0eba0d2196387e997"
 
-  def install
-    bin.install "gotoaws"
-    bash_completion.install "completions/gotoaws.bash" => "gotoaws"
-    zsh_completion.install "completions/gotoaws.zsh" => "_gotoaws"
-    fish_completion.install "completions/gotoaws.fish"
+      def install
+        bin.install "gotoaws"
+        bash_completion.install "completions/gotoaws.bash" => "gotoaws"
+        zsh_completion.install "completions/gotoaws.zsh" => "_gotoaws"
+        fish_completion.install "completions/gotoaws.fish"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.0.9/gotoaws_Linux_armv6.tar.gz"
+      sha256 "45dd4bf3b3adc46053769933d451949a0f9f36e88c117ecd2b396d9267c52002"
+
+      def install
+        bin.install "gotoaws"
+        bash_completion.install "completions/gotoaws.bash" => "gotoaws"
+        zsh_completion.install "completions/gotoaws.zsh" => "_gotoaws"
+        fish_completion.install "completions/gotoaws.fish"
+      end
+    end
   end
 
   test do
