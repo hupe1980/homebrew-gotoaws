@@ -5,13 +5,13 @@
 class Gotoaws < Formula
   desc "gotoaws is an interactive CLI tool that you can use to connect to your AWS resources (EC2, ECS container) using the AWS Systems Manager Session Manager"
   homepage "https://github.com/hupe1980/gotoaws"
-  version "0.23.0"
+  version "0.24.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.23.0/gotoaws_Darwin_arm64.tar.gz"
-      sha256 "7bc9697fed3c4b913f153bd7eb83d82aef11ba711bbdbad4e8145fd8035c005f"
+    if Hardware::CPU.intel?
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.24.0/gotoaws_Darwin_x86_64.tar.gz"
+      sha256 "b42b109bc1dff432ecb29ab91857da905bbd9434f3f5dac0410411af5b4242ba"
 
       def install
         bin.install "gotoaws"
@@ -20,9 +20,9 @@ class Gotoaws < Formula
         fish_completion.install "completions/gotoaws.fish"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.23.0/gotoaws_Darwin_x86_64.tar.gz"
-      sha256 "b03a216c4ad1bff70b233f3ace7a9bf32aea42373ec6f9a37ca93b4aa5f83595"
+    if Hardware::CPU.arm?
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.24.0/gotoaws_Darwin_arm64.tar.gz"
+      sha256 "9ebe5d2f4c0ee1a0af88cfeca1c66e0674137a8ca5f219463a53582a568232a4"
 
       def install
         bin.install "gotoaws"
@@ -34,9 +34,9 @@ class Gotoaws < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.23.0/gotoaws_Linux_armv6.tar.gz"
-      sha256 "c4461b44cfa318d40284f9d5f7fb7d03d071566fc069d45cecd13ae550c7aca5"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.24.0/gotoaws_Linux_arm64.tar.gz"
+      sha256 "814f9d31ba1631b39fc7012bebb1fa71bda616ae5b726883371e4ac1b94f23a6"
 
       def install
         bin.install "gotoaws"
@@ -46,8 +46,8 @@ class Gotoaws < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.23.0/gotoaws_Linux_x86_64.tar.gz"
-      sha256 "dc617a555de45ecf94409c8015c813186f75a7fb739aa0a715968766e5efa8d0"
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.24.0/gotoaws_Linux_x86_64.tar.gz"
+      sha256 "4933b60ba5c420b2d1f10f519fd1f05fa680a0402637a4c6687812f224116063"
 
       def install
         bin.install "gotoaws"
@@ -56,9 +56,9 @@ class Gotoaws < Formula
         fish_completion.install "completions/gotoaws.fish"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hupe1980/gotoaws/releases/download/v0.23.0/gotoaws_Linux_arm64.tar.gz"
-      sha256 "15d118967d31ba67a83ed7c0c917aa34d3a2ca5a08e1453f35eb3b6390537093"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/hupe1980/gotoaws/releases/download/v0.24.0/gotoaws_Linux_armv6.tar.gz"
+      sha256 "e5db2fc6ddf15f3e376356aaab5d4aec93c0498cd0fa7e781d6fed62088808d5"
 
       def install
         bin.install "gotoaws"
